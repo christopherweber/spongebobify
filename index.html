@@ -40,6 +40,10 @@
                 cursor: pointer;
             }
 
+            button:focus, input[type="button"]:focus {
+                outline: none;
+            }
+
             .button:hover {opacity: 1}
         </style>
     </head>
@@ -53,11 +57,13 @@
             font-family: playfair;
             font-size: 40px;
             width: 500px;
-            border-width: 0 0 2px;
+            border-width: 0 0 0;
             border-color: black;
             background-color: #fff;
+            outline: none;
             "
         />
+        <br>
         <br>
         <button id="submitButton" class="button">
             spongebobify me
