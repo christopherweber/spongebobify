@@ -72,21 +72,50 @@
         <div id="phrase" style="margin-top:20px; font-family: 'spongebob-font', sans-serif; font-size: 45px">
             
         </div>
-        <audio id="audio" src="./audio/spongebob-dolphin-censor.mp3" autoplay="false" ></audio>
-    </div>
+        <div>
+            <audio id="audio1" src="./audio/spongebob-fail.mp3" preload="none" audio>
+            <audio id="audio2" src="./audio/spongebob-dolphin-censor.mp3" autoplay="false" ></audio>
+            <audio id="audio3" src="./audio/spongebob-laugh.mp3" autoplay="false" ></audio>
+            <!-- <audio id="audio4" src="./audio/spongebob-vine-chocolate.mp3" autoplay="false" ></audio> -->
+            </div>
+        </div>
+
     <div style="max-width: 100%;">
-        <marquee scrollamount="15">
+        <marquee scrollamount="14">
             <img id="image" style="height:200px;width:200px;margin-left:550px;" src="https://pixel.nymag.com/imgs/daily/vulture/2017/05/16/16-spongebob-explainer.w700.h700.jpg">
         </marquee>
             
     </div>
 </body>
 <script>
+    function randomAudio(){
+        
+        var audio1 = document.getElementById("audio1");
+        var audio2 = document.getElementById("audio2");
+        var audio3 = document.getElementById("audio3");
+        // var audio3 = document.getElementById("audio4");
+
+        var random =[audio1, audio2, audio3]
+ 
+        let luckyWinner = random[Math.floor(Math.random() * random.length)];
+        luckyWinner.play()
+        console.log(luckyWinner)
+
+    }
     const submitButton = document.getElementById("submitButton")
     
+    document.getElementById("phraseEntered").addEventListener("keyup", function(event) {
+    event.preventDefault();
+    if (event.keyCode === 13) {
+        document.getElementById("submitButton").click();
+    }
+});
+    
     submitButton.addEventListener("click", function(e){
-        var audio = document.getElementById("audio");
-        audio.play();
+
+        randomAudio()
+        // var audio = document.getElementById("audio");
+        // audio.play();
         let input = document.getElementById("phraseEntered")
         let newSentence = spongebobify(document.getElementById("phraseEntered").value)
         console.log(newSentence)
