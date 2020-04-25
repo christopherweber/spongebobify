@@ -11,7 +11,7 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="stylesheet" href="./file.css"></link>
         <title>Spongey</title>
-        
+        <script type="text/javascript" src="html2canvas.js"></script>
         <!-- <img style="height:200px;width:200px;margin-left:550px;" src="https://pixel.nymag.com/imgs/daily/vulture/2017/05/16/16-spongebob-explainer.w700.h700.jpg"> -->
         <style>
             @font-face {
@@ -51,6 +51,13 @@
                 height: 100%;
                 overflow-wrap:break-word;
                 overflow-wrap: break-word;
+            }
+
+            .canvas__canvas {
+                height: 100%;
+                position: relative;
+                width: 100%;
+                z-index: 1;
             }
 
             .button {
@@ -100,11 +107,13 @@
         </button>
         <br>
         
-        <div class="container">
+        <!-- <canvas id="myCanvas">  -->
 
-            <img id="image" src="https://pixel.nymag.com/imgs/daily/vulture/2017/05/16/16-spongebob-explainer.w700.h700.jpg">         
-            <div id="phrase" class="text-block" style="font-family: 'spongebob-font', sans-serif; font-size: 35px"></div>
-        </div>
+            <div class="container" id="newImage">
+                <div id="phrase" class="text-block" style="font-family: 'spongebob-font', sans-serif; font-size: 35px"></div>
+                <img id="image" src="https://pixel.nymag.com/imgs/daily/vulture/2017/05/16/16-spongebob-explainer.w700.h700.jpg">         
+            </div>
+        <!-- </canvas> -->
         <div>
             <audio id="audio1" src="./audio/spongebob-fail.mp3" autostart="0" audio>
             <audio id="audio2" src="./audio/spongebob-dolphin-censor.mp3" autostart="0" ></audio>
@@ -119,6 +128,9 @@
 
 </body>
 <script>
+
+    const myCanvas = document.querySelector('#myCanvas')
+
     function randomAudio(){
         
         var audio1 = document.getElementById("audio1");
@@ -155,6 +167,25 @@
         document.getElementById("phrase").innerHTML = newSentence
         document.getElementById('image').style.display = "block";
         document.getElementById("phraseEntered").value =''
+        const newImage = document.querySelector('#newImage')
+        console.log(newImage)
+        html2canvas(document.querySelector("#newImage")
+        ).then(canvas => {
+            document.body.appendChild(canvas);
+            console.log(canvas.toDataURL("image/jpeg", 0.9))
+        }); 
+        // var imgCanvas = document.createElement("canvas"),
+        // imgContext = imgCanvas.getContext("2d");
+        // imgCanvas.width = newImage.width;
+        // imgCanvas.height = newImage.height;
+        // imgContext.drawImage(newImage, 0, 0, newImage.width, newImage.height);
+        // var imgAsDataURL = imgCanvas.toDataURL("image/png");
+        // try {
+        // localStorage.setItem("newImage", imgAsDataURL);
+        // }
+        // catch (e) {
+        // console.log("Storage failed: " + e);
+        // }
     })
     
     
