@@ -2,17 +2,13 @@
 <html lang="en">
     <head>
 
-        <!-- <audio autoplay>
-            <source src="/audio/SpongeBob-SquarePants-Theme-Song.mp3" type="audio/mp3">
-          Your browser does not support the audio element.
-          </audio> -->
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="stylesheet" href="./file.css"></link>
+        <!-- <link rel="stylesheet" type="text/css" href="./css/mobile.css" /> -->
         <title>Spongey</title>
         <script type="text/javascript" src="html2canvas.js"></script>
-        <!-- <img style="height:200px;width:200px;margin-left:550px;" src="https://pixel.nymag.com/imgs/daily/vulture/2017/05/16/16-spongebob-explainer.w700.h700.jpg"> -->
         <style>
             @font-face {
                 font-family: 'spongebob-font';
@@ -25,85 +21,83 @@
                 }
 
 
-           #image{
-                display:none;
-                width: 100%;
-                height: 100%;
-           }
+                #image{
+                    display:none;
+                    width: 100%;
+                    height: 100%;
+                 }
 
-           #downloadButton {
-               display: none;
-           }
+                #downloadButton {
+                    display: none;
+                }
 
-           .container {
-            position: relative;
-            left: 36%;
-            font-family: Arial;
-            width: 400px;
-            overflow-wrap: break-word;
-            }
+                .container {
+                    position: relative;
+                    left: 36%;
+                    font-family: Arial;
+                    width: 430px;
+                    height: 440px;
+                    overflow-wrap: break-word;
+                    bottom: 20px;
+                }
 
-            .text-block {
-                position: absolute;
-                color: white;
-                text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-                z-index: 999;
-                margin: 0 auto;
-                left: 0;
-                right: 0;
-                top: 70%; 
-                text-align: center;
-                width: 400px;
-                /* height: 100%; */
-                overflow-wrap:break-word;
-                overflow-wrap: break-word;
-            }
+                .text-block {
+                    position: absolute;
+                    color: white;
+                    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+                    z-index: 999;
+                    margin: 0 auto;
+                    left: 0;
+                    right: 0;
+                    top: 77%; 
+                    text-align: center;
+                    width: 400px;
+                    /* height: 100%; */
+                    overflow-wrap:break-word;
+                    overflow-wrap: break-word;
+                }
 
-            .canvas__canvas {
-                height: 100%;
-                position: relative;
-                width: 100%;
-                z-index: 1;
-            }
 
-            .button {
-                font-family: 'spongebob-font', sans-serif;
-                margin-top: 20px;
-                background-color: #f54a16;
-                border: none;
-                color: black;
-                padding: 16px 32px;
-                text-align: center;
-                font-size: 16px;
-                margin: 4px 2px;
-                opacity: 0.8;
-                transition: 0.3s;
-                display: inline-block;
-                text-decoration: none;
-                cursor: pointer;
-                margin-bottom: 20px;
-            }
+                .button {
+                    font-family: 'spongebob-font', sans-serif;
+                    margin-top: 20px;
+                    background-color: #f54a16;
+                    border: none;
+                    color: black;
+                    padding: 16px 32px;
+                    text-align: center;
+                    font-size: 16px;
+                    margin: 4px 2px;
+                    opacity: 0.8;
+                    transition: 0.3s;
+                    display: inline-block;
+                    text-decoration: none;
+                    cursor: pointer;
+                    margin-bottom: 20px;
+                }
 
-            button:focus, input[type="button"]:focus {
-                outline: none;
-            }
+                button:focus, input[type="button"]:focus {
+                    outline: none;
+                }
 
-            .button:hover {opacity: 1}
+                .button:hover {opacity: 1}
 
-            .bothButts {
-                display: flex;
-                justify-content: center;
-            }
+                .bothButts {
+                    display: flex;
+                    justify-content: center;
+                }
             
         </style>
+
     </head>
     <body style="background-color:rgb(228, 131, 109)">
         <div>
-        </div>
-        <div style="text-align: center; margin-top:2%;">
-            <h1 style="font-family: 'spongebob-font', sans-serif; font-size: 80px;">spongebobify your life</h1>
-            <input id="phraseEntered" 
-            style="
+            <div style="text-align: center; margin-top:2%;">
+                <h1 style="font-family: 'spongebob-font', sans-serif; font-size: 70px;">spongebobify your life</h1>
+                    
+            <div id="inputAndButtContainer">
+                <input id="phraseEntered" 
+                style="
             font-family: playfair;
             font-size: 40px;
             width: 500px;
@@ -111,20 +105,21 @@
             border-color: black;
             background-color: #fff;
             outline: none;
+            font-family: 'spongebob-font', sans-serif;
             "
-            maxlength="80"
-        />
-        <br>
-        <br>
-        <div class="bothButts">
-
-            <button id="submitButton" class="button" >
-                are you ready?
-            </button>
-            <button id="downloadButton" class="button">Download</button>
-        </div>
-        <br>
-        
+            maxlength="60"
+            />
+            <br>
+            <br>
+            <div class="bothButts">
+                
+                <button id="submitButton" class="button" >
+                    are you ready?
+                </button>
+                <button id="downloadButton" class="button">Download</button>
+            </div>
+            <br>
+            </div>
 
 
             <div class="container" id="newImage">
@@ -132,8 +127,6 @@
                 <img id="image" src="./pics/spongebobpic.jpg">         
             </div>
 
-            
-            <!-- <button id="downloadButton">Download</button> -->
         <div>
             <audio id="audio1" src="./audio/spongebob-fail.mp3" autostart="0" audio>
             <audio id="audio2" src="./audio/spongebob-dolphin-censor.mp3" autostart="0" ></audio>
@@ -183,8 +176,13 @@
         randomAudio()
         let input = document.getElementById("phraseEntered")
         let newSentence = spongebobify(document.getElementById("phraseEntered").value)
+        // if (newSentence.length === 2){
+        //     console.log("short paul")
+        //     // document.getElementsById("container").style.color = 'red'
+        // }
         console.log(newSentence)
         document.getElementById("phrase").innerHTML = newSentence
+        document.getElementById("submitButton").innerHTML = "Do it again"
         document.getElementById('image').style.display = "block";
         document.getElementById('downloadButton').style.display = "block";
         document.getElementById("phraseEntered").value =''

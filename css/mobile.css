@@ -1,0 +1,24 @@
+@media screen and (max-width: 600px) {
+
+    html {
+        height: 100vh;
+        width: 100vh;
+        }
+
+    h1 {
+        /* font-size: 140%; */
+        margin-right: -170px;
+    }
+
+    div#inputAndButtContainer {
+        margin-right: -170px;
+    }
+
+    button#submitButton {
+        font-size: 30px;
+    }
+
+    input#phraseEntered {
+        width: 10px;
+    }
+}
